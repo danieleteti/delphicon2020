@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9E438CC3-4C44-4B67-B0ED-49595EAC80A1}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="simple_api_using_datasets\SimpleRESTAPIUsingDatasets.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="simple_api_using_mvcactiverecord\SimpleRESTAPIUsingActiveRecord.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="simple_jsonrpc_api\SimpleJSONRPCAPI.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="simple_jsonrpc_client\SimpleJSONRPCAPI_VCL_Client.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SimpleRESTAPIUsingDatasets">
+        <MSBuild Projects="simple_api_using_datasets\SimpleRESTAPIUsingDatasets.dproj"/>
+    </Target>
+    <Target Name="SimpleRESTAPIUsingDatasets:Clean">
+        <MSBuild Projects="simple_api_using_datasets\SimpleRESTAPIUsingDatasets.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SimpleRESTAPIUsingDatasets:Make">
+        <MSBuild Projects="simple_api_using_datasets\SimpleRESTAPIUsingDatasets.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SimpleRESTAPIUsingActiveRecord">
+        <MSBuild Projects="simple_api_using_mvcactiverecord\SimpleRESTAPIUsingActiveRecord.dproj"/>
+    </Target>
+    <Target Name="SimpleRESTAPIUsingActiveRecord:Clean">
+        <MSBuild Projects="simple_api_using_mvcactiverecord\SimpleRESTAPIUsingActiveRecord.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SimpleRESTAPIUsingActiveRecord:Make">
+        <MSBuild Projects="simple_api_using_mvcactiverecord\SimpleRESTAPIUsingActiveRecord.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SimpleJSONRPCAPI">
+        <MSBuild Projects="simple_jsonrpc_api\SimpleJSONRPCAPI.dproj"/>
+    </Target>
+    <Target Name="SimpleJSONRPCAPI:Clean">
+        <MSBuild Projects="simple_jsonrpc_api\SimpleJSONRPCAPI.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SimpleJSONRPCAPI:Make">
+        <MSBuild Projects="simple_jsonrpc_api\SimpleJSONRPCAPI.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SimpleJSONRPCAPI_VCL_Client">
+        <MSBuild Projects="simple_jsonrpc_client\SimpleJSONRPCAPI_VCL_Client.dproj"/>
+    </Target>
+    <Target Name="SimpleJSONRPCAPI_VCL_Client:Clean">
+        <MSBuild Projects="simple_jsonrpc_client\SimpleJSONRPCAPI_VCL_Client.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SimpleJSONRPCAPI_VCL_Client:Make">
+        <MSBuild Projects="simple_jsonrpc_client\SimpleJSONRPCAPI_VCL_Client.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SimpleRESTAPIUsingDatasets;SimpleRESTAPIUsingActiveRecord;SimpleJSONRPCAPI;SimpleJSONRPCAPI_VCL_Client"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SimpleRESTAPIUsingDatasets:Clean;SimpleRESTAPIUsingActiveRecord:Clean;SimpleJSONRPCAPI:Clean;SimpleJSONRPCAPI_VCL_Client:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SimpleRESTAPIUsingDatasets:Make;SimpleRESTAPIUsingActiveRecord:Make;SimpleJSONRPCAPI:Make;SimpleJSONRPCAPI_VCL_Client:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
